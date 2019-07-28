@@ -22,7 +22,7 @@ class CHITouchySuperButton: UIButton {
     var buttonReleased: TouchBlock?
     
     required init() {
-        super.init(style: .custom)
+        super.init(frame: .zero)
         
         addTarget(self, action: #selector(buttonTouchDown(_:)), for: [.touchDown, .touchDragEnter])
         addTarget(self, action: #selector(buttonTouchUp(_:)), for: [.touchCancel, .touchDragExit])
@@ -59,7 +59,10 @@ class CHITouchySuperButton: UIButton {
         clearAnimators()
         
         let releaseAnimator = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) { [weak self] in
-            self?.buttonPressed?(self)
+            guard let self = self else {
+                return
+            }
+            self.buttonPressed?(self)
         }
         releaseAnimator.startAnimation()
         propertyAnimators.append(releaseAnimator)
@@ -76,8 +79,11 @@ class CHITouchySuperButton: UIButton {
                 // this is like a normal tap, with no sort of weird holding down
                 animator.pauseAnimation()
                 animator.continueAnimation(withTimingParameters: nil, durationFactor: 0.25)
-                animator.addCompletion { [weak self] in
-                    self?.buttonTouchUp(self)
+                animator.addCompletion { [weak self] _ in
+                    guard let self = self else {
+                        return
+                    }
+                    self.buttonTouchUp(self)
                 }
             } else {
                 // otherwise, if it's inactive, just animate it back. nothing else

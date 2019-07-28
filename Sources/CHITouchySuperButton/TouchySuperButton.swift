@@ -1,5 +1,5 @@
 //
-//  CHITouchySuperButton.swift
+//  TouchySuperButton.swift
 //  SongShift
 //
 //  Created by Ben Rosen on 2/20/18.
@@ -10,9 +10,9 @@ import UIKit
 
 // the contents of a TouchBlock must be UIView animatable properties
 // refer to https://developer.apple.com/documentation/uikit/uiview under "Animations" subheading
-typealias TouchBlock = (_ sender: CHITouchySuperButton?) -> ()
+typealias TouchBlock = (_ sender: TouchySuperButton?) -> ()
 
-class CHITouchySuperButton: UIButton {
+class TouchySuperButton: UIButton {
     var hapticFeedbackEnabled = true
     let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 
@@ -43,7 +43,7 @@ class CHITouchySuperButton: UIButton {
     }
     
     
-    @objc func buttonTouchDown(_ sender: CHITouchySuperButton) {
+    @objc func buttonTouchDown(_ sender: TouchySuperButton) {
         clearAnimators()
         
         hapticFeedbackGenerator.prepare()
@@ -55,7 +55,7 @@ class CHITouchySuperButton: UIButton {
         propertyAnimators.append(pressDownAnimator)
     }
     
-    @objc func buttonTouchUp(_ sender: CHITouchySuperButton) {
+    @objc func buttonTouchUp(_ sender: TouchySuperButton) {
         clearAnimators()
         
         let releaseAnimator = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) { [weak self] in
@@ -68,7 +68,7 @@ class CHITouchySuperButton: UIButton {
         propertyAnimators.append(releaseAnimator)
     }
     
-    @objc func buttonTouchTriggered(_ sender: CHITouchySuperButton) {
+    @objc func buttonTouchTriggered(_ sender: TouchySuperButton) {
         if hapticFeedbackEnabled {
             hapticFeedbackGenerator.impactOccurred()
         }

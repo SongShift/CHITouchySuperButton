@@ -4,7 +4,7 @@ This package is only compatible with iOS and targets iOS 10+.
 
 |  Background Color                                                                             | Transform                                                                                   |
 |-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| ![](https://raw.githubusercontent.com/SongShift/CHITouchySuperButton/master/Assets/colorchange.gif?token=AB5FC6CQUFYWWJ6ZWAMXV225JBTR2) | ![](https://raw.githubusercontent.com/SongShift/CHITouchySuperButton/master/Assets/transform.gif?token=AB5FC6CLFH4BLG3HPWSC2ES5JBT6A)| 
+| ![](https://raw.githubusercontent.com/SongShift/CHITouchySuperButton/master/Assets/colorchange.gif?token=AB5FC6CQUFYWWJ6ZWAMXV225JBTR2) | ![](https://raw.githubusercontent.com/SongShift/CHITouchySuperButton/master/Assets/transform.gif?token=AB5FC6CLFH4BLG3HPWSC2ES5JBT6A)
 
 ## Installation
 To install `CHITouchySuperButton`, you must either manually add [the source files](https://github.com/SongShift/CHITouchySuperButton/tree/master/Sources/CHITouchySuperButton) or use Swift Package Manager. To install with Swift Package Manager, follow these instructions from [Apple's official documentation](https://developer.apple.com/documentation/swift_packages/creating_a_swift_package_with_xcode).

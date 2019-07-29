@@ -1,10 +1,10 @@
 # CHITouchySuperButton
 `CHITouchySuperButton` is a drop-in UIButton subclass that allows you to create and customize a highly interactive button in just a few lines of code. This class is compatible with the [UIView animatable properties](https://developer.apple.com/documentation/uikit/uiview): `transform`, `alpha`, `center`, `frame`, `bounds`, and `backgroundColor`. This class is widely used in all SongShift apps to make it feel a lot more interactive. 
-This package is only compatible with iOS and targets iOS 10+.
+This package is only compatible with iOS apps and targets iOS 10+.
 
 |  Background Color                                                                             | Transform                                                                                   |
-|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| ![](https://raw.githubusercontent.com/SongShift/CHITouchySuperButton/master/Assets/colorchange.gif?token=AB5FC6CQUFYWWJ6ZWAMXV225JBTR2) | ![](https://raw.githubusercontent.com/SongShift/CHITouchySuperButton/master/Assets/transform.gif?token=AB5FC6CLFH4BLG3HPWSC2ES5JBT6A)
+|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| ![](https://raw.githubusercontent.com/SongShift/CHITouchySuperButton/master/Assets/colorchange.gif?token=AB5FC6CQUFYWWJ6ZWAMXV225JBTR2) | ![](https://raw.githubusercontent.com/SongShift/CHITouchySuperButton/master/Assets/transform.gif?token=AB5FC6CLFH4BLG3HPWSC2ES5JBT6A)| 
 
 ## Installation
 To install `CHITouchySuperButton`, you must either manually add [the source files](https://github.com/SongShift/CHITouchySuperButton/tree/master/Sources/CHITouchySuperButton) or use Swift Package Manager. To install with Swift Package Manager, follow these instructions from [Apple's official documentation](https://developer.apple.com/documentation/swift_packages/creating_a_swift_package_with_xcode).

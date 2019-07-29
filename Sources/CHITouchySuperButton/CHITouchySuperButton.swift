@@ -69,7 +69,7 @@ public class CHITouchySuperButton: UIButton {
             guard let self = self else {
                 return
             }
-            self.buttonPressed?(self)
+            self.buttonReleased?(self)
         }
         releaseAnimator.startAnimation()
         propertyAnimators.append(releaseAnimator)

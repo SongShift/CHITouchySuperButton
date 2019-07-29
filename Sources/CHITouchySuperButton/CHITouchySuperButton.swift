@@ -36,7 +36,7 @@ public class CHITouchySuperButton: UIButton {
     
     func addButtonTargets() {
         addTarget(self, action: #selector(buttonTouchDown(_:)), for: [.touchDown, .touchDragEnter])
-        addTarget(self, action: #selector(buttonTouchUp(_:)), for: [.touchCancel, .touchDragExit])
+        addTarget(self, action: #selector(buttonTouchUp(_:)), for: [.touchCancel, .touchDragExit, .touchCancel])
         addTarget(self, action: #selector(buttonTouchTriggered(_:)), for: .touchUpInside)
     }
     

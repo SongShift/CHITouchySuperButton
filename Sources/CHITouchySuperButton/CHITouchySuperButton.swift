@@ -1,5 +1,5 @@
 //
-//  TouchySuperButton.swift
+//  CHITouchySuperButton.swift
 //  SongShift
 //
 //  Created by Ben Rosen on 2/20/18.
@@ -10,10 +10,10 @@ import UIKit
 
 // the contents of a TouchBlock must be UIView animatable properties
 // refer to https://developer.apple.com/documentation/uikit/uiview under "Animations" subheading
-typealias TouchBlock = (_ sender: TouchySuperButton?) -> ()
+typealias TouchBlock = (_ sender: CHITouchySuperButton?) -> ()
 
-class TouchySuperButton: UIButton {
-    var hapticFeedbackEnabled = true
+public class CHITouchySuperButton: UIButton {
+    public var hapticFeedbackEnabled = true
     let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 
     var propertyAnimators: [UIViewPropertyAnimator] = []
@@ -21,16 +21,23 @@ class TouchySuperButton: UIButton {
     var buttonPressed: TouchBlock?
     var buttonReleased: TouchBlock?
     
-    required init() {
-        super.init(frame: .zero)
+    // https://stackoverflow.com/a/38161500 override both constructors to make it work both with IB and programmatically
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         
+        addButtonTargets()
+    }
+    
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        addButtonTargets()
+    }
+    
+    func addButtonTargets() {
         addTarget(self, action: #selector(buttonTouchDown(_:)), for: [.touchDown, .touchDragEnter])
         addTarget(self, action: #selector(buttonTouchUp(_:)), for: [.touchCancel, .touchDragExit])
         addTarget(self, action: #selector(buttonTouchTriggered(_:)), for: .touchUpInside)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     // if the current animations are being interrupted, clear them out by calling this function
@@ -43,7 +50,7 @@ class TouchySuperButton: UIButton {
     }
     
     
-    @objc func buttonTouchDown(_ sender: TouchySuperButton) {
+    @objc func buttonTouchDown(_ sender: CHITouchySuperButton) {
         clearAnimators()
         
         hapticFeedbackGenerator.prepare()
@@ -55,7 +62,7 @@ class TouchySuperButton: UIButton {
         propertyAnimators.append(pressDownAnimator)
     }
     
-    @objc func buttonTouchUp(_ sender: TouchySuperButton) {
+    @objc func buttonTouchUp(_ sender: CHITouchySuperButton) {
         clearAnimators()
         
         let releaseAnimator = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) { [weak self] in
@@ -68,7 +75,7 @@ class TouchySuperButton: UIButton {
         propertyAnimators.append(releaseAnimator)
     }
     
-    @objc func buttonTouchTriggered(_ sender: TouchySuperButton) {
+    @objc func buttonTouchTriggered(_ sender: CHITouchySuperButton) {
         if hapticFeedbackEnabled {
             hapticFeedbackGenerator.impactOccurred()
         }

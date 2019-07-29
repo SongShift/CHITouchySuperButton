@@ -10,7 +10,7 @@ import UIKit
 
 // the contents of a TouchBlock must be UIView animatable properties
 // refer to https://developer.apple.com/documentation/uikit/uiview under "Animations" subheading
-typealias TouchBlock = (_ sender: CHITouchySuperButton?) -> ()
+public typealias TouchBlock = (_ sender: CHITouchySuperButton?) -> ()
 
 public class CHITouchySuperButton: UIButton {
     public var hapticFeedbackEnabled = true
@@ -18,8 +18,8 @@ public class CHITouchySuperButton: UIButton {
 
     var propertyAnimators: [UIViewPropertyAnimator] = []
     
-    var buttonPressed: TouchBlock?
-    var buttonReleased: TouchBlock?
+    public var buttonPressed: TouchBlock?
+    public var buttonReleased: TouchBlock?
     
     // https://stackoverflow.com/a/38161500 override both constructors to make it work both with IB and programmatically
     public override init(frame: CGRect) {

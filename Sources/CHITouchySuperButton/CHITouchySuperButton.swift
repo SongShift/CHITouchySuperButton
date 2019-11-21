@@ -12,7 +12,7 @@ import UIKit
 // refer to https://developer.apple.com/documentation/uikit/uiview under "Animations" subheading
 public typealias TouchBlock = (_ sender: CHITouchySuperButton?) -> ()
 
-public class CHITouchySuperButton: UIButton {
+open class CHITouchySuperButton: UIButton {
     public var hapticFeedbackEnabled = true
     let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 

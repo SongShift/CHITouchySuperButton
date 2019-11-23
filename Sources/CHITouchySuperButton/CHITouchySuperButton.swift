@@ -14,6 +14,8 @@ public typealias TouchBlock = (_ sender: CHITouchySuperButton?) -> ()
 
 open class CHITouchySuperButton: UIButton {
     public var hapticFeedbackEnabled = true
+    public var stayPushedDown = false
+
     let hapticFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 
     var propertyAnimators: [UIViewPropertyAnimator] = []
@@ -90,9 +92,11 @@ open class CHITouchySuperButton: UIButton {
                     guard let self = self else {
                         return
                     }
-                    self.buttonTouchUp(self)
+                    if !self.stayPushedDown {
+                        self.buttonTouchUp(self)
+                    }
                 }
-            } else {
+            } else if !self.stayPushedDown {
                 // otherwise, if it's inactive, just animate it back. nothing else
                 buttonTouchUp(self)
             }

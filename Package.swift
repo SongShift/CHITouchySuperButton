@@ -9,6 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "CHITouchySuperButton",
+			type: .dynamic,
             targets: ["CHITouchySuperButton"]),
     ],
     targets: [

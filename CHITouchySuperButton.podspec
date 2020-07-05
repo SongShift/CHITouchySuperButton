@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CHITouchySuperButton'
-  s.version          = '1.0.6'
+  s.version          = '1.0.7'
   s.summary          = 'Drop-in UIButton subclass designed to make custom animations easy'
 
   s.description      = <<-DESC

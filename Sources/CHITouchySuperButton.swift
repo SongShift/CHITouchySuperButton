@@ -37,6 +37,7 @@ open class CHITouchySuperButton: UIButton {
     }
     
     func addButtonTargets() {
+		isExclusiveTouch = true
         addTarget(self, action: #selector(buttonTouchDown(_:)), for: [.touchDown, .touchDragEnter])
         addTarget(self, action: #selector(buttonTouchUp(_:)), for: [.touchCancel, .touchDragExit, .touchCancel])
         addTarget(self, action: #selector(buttonTouchTriggered(_:)), for: .touchUpInside)
